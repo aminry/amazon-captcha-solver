@@ -8,3 +8,4 @@ beautifulsoup4==4.9.3
 keras==2.4.3
 scikit_learn==0.24.0
 tensorflow==2.5.1
+gunicorn==20.1.0
