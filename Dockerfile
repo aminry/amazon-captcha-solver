@@ -1,13 +1,6 @@
-FROM python:3.6.10-stretch
-RUN apt-get update -y
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python-dev build-essential libgl1-mesa-glx libsm6 libxext6 libglib2.0-0 libglib2.0-dev
-
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
-  && echo "deb http://download.mono-project.com/repo/debian stretch/snapshots/5.20 main" > /etc/apt/sources.list.d/mono-official.list \
-  && apt-get update \
-  && apt-get install -y clang \
-  && apt-get install -y mono-devel=5.20\* \
-  && rm -rf /var/lib/apt/lists/* /tmp/*
+FROM ubuntu
+RUN apt-get update -y --fix-missing --allow-releaseinfo-change
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3-pip python3-pip python-dev build-essential libgl1-mesa-glx libsm6 libxext6 libglib2.0-0
 
 RUN mkdir /app
 WORKDIR /app
