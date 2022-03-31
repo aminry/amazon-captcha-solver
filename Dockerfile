@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM tensorflow/tensorflow:latest-py3
 RUN apt-get update -y --fix-missing --allow-releaseinfo-change
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3-pip python3-pip python-dev build-essential libgl1-mesa-glx libsm6 libxext6 libglib2.0-0
 
@@ -10,7 +10,6 @@ RUN pip3 install --upgrade pip
 RUN pip3 install -U setuptools
 RUN pip3 install -U wheel
 RUN pip3 install -U pycparser
-RUN pip3 install pythonnet==2.4.0
 RUN pip3 install -r requirements.txt
 CMD ["python3", "app.py"]
 EXPOSE 5000
