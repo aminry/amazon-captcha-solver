@@ -1,8 +1,6 @@
 from tensorflow.keras.models import load_model
 from helpers import resize_to_fit
-from imutils import paths
 import numpy as np
-import imutils
 import cv2
 import pickle
 import tensorflow as tf
